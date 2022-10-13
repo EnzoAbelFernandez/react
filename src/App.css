@@ -1,3 +1,21 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.disclaimer {
+  display: none !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.navbar-brand img {
+  width: 2em;
+  height: 2em;
+}
+
 .navbar ul {
   position: relative;
   top: 8px;
@@ -11,7 +29,228 @@
 .navbar ul a:hover {
   border-bottom: 3px solid black;
 }
+.navbar ul Link {
+  font-family: Montserrat;
+  transition: all 0.3s;
+  color: black;
+  border-bottom: 3px solid rgba(0, 0, 0, 0);
+}
+.navbar ul Link:hover {
+  border-bottom: 3px solid black;
+}
+
+.sk1, .sk2, .sk3, .sk4, .foto1, .foto2, .foto3, .foto4 {
+  transition: all 0.5s;
+}
+.sk1:hover, .sk2:hover, .sk3:hover, .sk4:hover, .foto1:hover, .foto2:hover, .foto3:hover, .foto4:hover {
+  opacity: 0;
+}
+
+.sneakers-footer, .fotos-footer {
+  display: grid;
+  grid-template-areas: "foto1 foto2 foto3 foto4";
+  justify-content: space-evenly;
+  padding-left: 0px;
+}
+
+.footer-c ul {
+  list-style: none;
+}
+.footer-c ul p {
+  color: white;
+}
+
+.foto1 {
+  grid-area: foto1;
+}
+
+.foto2 {
+  grid-area: foto2;
+}
+
+.foto3 {
+  grid-area: foto3;
+}
+
+.foto4 {
+  grid-area: foto4;
+}
+
+@media screen and (max-width: 840px) {
+  .fotos-footer {
+    grid-template-areas: "foto1 foto2" "foto3 foto4";
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 400px) {
+  .fotos-footer {
+    grid-template-areas: "foto1" "foto2" "foto3" "foto4";
+    justify-content: center;
+  }
+}
+.footer-dark {
+  padding: 35px 0;
+  color: #f0f9ff;
+  background-color: #282d32;
+}
+
+.footer-dark .item.social > a {
+  font-size: 20px;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 60%;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4);
+  margin: 0 8px;
+  color: #fff;
+  opacity: 0.75;
+}
+.footer-dark .item.social > a:hover {
+  opacity: 0.9;
+}
+
+.footer-dark .copyright {
+  text-align: center;
+  padding-top: 24px;
+  opacity: 0.3;
+  font-size: 13px;
+  margin-bottom: 0;
+}
+
+.footer-dark .item.text p {
+  opacity: 0.6;
+  margin-bottom: 0;
+}
+
+.footer-dark .item.social {
+  text-align: center;
+}
+
+.sk1, .sk2, .sk3, .sk4, .foto1, .foto2, .foto3, .foto4 {
+  transition: all 0.5s;
+}
+.sk1:hover, .sk2:hover, .sk3:hover, .sk4:hover, .foto1:hover, .foto2:hover, .foto3:hover, .foto4:hover {
+  opacity: 0;
+}
+
+.sneakers-footer, .fotos-footer {
+  display: grid;
+  grid-template-areas: "foto1 foto2 foto3 foto4";
+  justify-content: space-evenly;
+  padding-left: 0px;
+}
+
+.sk1 {
+  grid-area: foto1;
+}
+
+.sk2 {
+  grid-area: foto2;
+}
+
+.sk3 {
+  grid-area: foto3;
+}
+
+.sk4 {
+  grid-area: foto4;
+}
+
+@media screen and (max-width: 1130px) {
+  .sneakers-footer {
+    grid-template-areas: "foto1 foto2" "foto3 foto4";
+    justify-content: center;
+  }
+}
+@media screen and (max-width: 610px) {
+  .sneakers-footer {
+    grid-template-areas: "foto1" "foto2" "foto3" "foto4";
+    justify-content: center;
+  }
+}
+.contacto-txt {
+  flex-direction: column;
+  justify-content: center;
+  font-family: Montserrat;
+}
+.contacto-txt ul {
+  list-style: none;
+}
+
+@media screen and (min-width: 820px) {
+  .contacto-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 150px);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+  }
+  .contacto-container .contacto-txt {
+    grid-area: 1/1/2/3;
+  }
+  .contacto-container .contacto-map {
+    grid-area: 2/1/6/3;
+  }
+  .contacto-container .contacto-360 {
+    grid-area: 1/3/6/5;
+  }
+}
+@media screen and (max-width: 820px) {
+  .contacto-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(7, 150px);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+  }
+  .contacto-txt {
+    grid-area: 1/1/2/2;
+    font-family: Montserrat;
+  }
+  .contacto-txt ul {
+    list-style: none;
+  }
+  .contacto-map {
+    grid-area: 2/1/5/2;
+  }
+  .contacto-360 {
+    grid-area: 5/1/8/2;
+  }
+}
+.nosotros-container {
+  display: flex;
+  flex-direction: column;
+}
+.nosotros-container main {
+  font-family: Montserrat;
+}
+.nosotros-container .nosotros-vid {
+  margin-bottom: 10px;
+}
+
+.carousel-item img {
+  width: 90%;
+}
+
+.carousel-container {
+  background-color: rgb(47, 59, 104);
+}
+
+html {
+  background-color: rgb(47, 59, 104);
+}
 
 .def-margin {
   margin-top: 78px;
+}
+
+.text1 {
+  display: flex;
+  align-items: center;
+}
+
+.img-tm {
+  width: 80%;
 }

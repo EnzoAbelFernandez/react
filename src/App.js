@@ -1,14 +1,22 @@
 import './App.css';
 import NavBar from './components/NavBar';
-import Saludo from './components/Saludo';
+import ProductosList from './components/productos/ProductosList';
+import Footer from "./components/Footer";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Carrito from './components/Carrito';
 
 function App() {
   return (
-    <div className="App">
+    <Router>
       <NavBar/>
-      <Saludo userName={"Enzo"}/>
-    </div>
+      <Routes>
+        <Route exact path='/' element={<ProductosList/>}/>
+        <Route exact path='/carrito' element={<Carrito/>}/>
+      </Routes>
+      <Footer/>
+    </Router>
   );
 }
+
 
 export default App;
