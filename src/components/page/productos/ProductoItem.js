@@ -1,13 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Link } from "react-router-dom";
+import { DataContext } from "context/DataProvider";
 
 export const ProductoItem = ({title, image, category, price, id}) => {
 
-  const addCarrito = (id) => {
-    let carrito = JSON.parse(localStorage.getItem("carrito")) || []
-    carrito.push(id)
-    localStorage.setItem("carrito", JSON.stringify(carrito))
-  }
+  const value = useContext(DataContext);
+  const addCarrito = value.addCarrito;
+
+
 
   return (
     
@@ -22,8 +22,11 @@ export const ProductoItem = ({title, image, category, price, id}) => {
         <p>{category}</p>
         <p className="price">${price} </p>
       </div>
-      <div className="bottom d-flex justify-content-center">
-        <button className="btn" onClick={() => addCarrito(id)}>Añadir al carrito</button>
+      <div className="bottom">
+        <button onClick={() => addCarrito(id)} className="btn">Añadir al carrito</button>
+        <div>
+        <Link to={`/producto/${id}`} className="btn">Vista</Link>
+        </div>
       </div>
     </div>
   );

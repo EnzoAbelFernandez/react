@@ -1,18 +1,16 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import { DataContext } from "context/DataProvider";
 import { ProductoItem } from "./ProductoItem";
-import { useState } from 'react';
-import data from "../../Data"
 
-
-
-
-const ProductosList = () => {
-	const [prods, setProds] = useState(data)
+export const ProductosList = () => {
+	const value = useContext(DataContext)
+	const [productos] = value.productos;
     return (
 			<>
+			<h1 className="produ">PRODUCTOS</h1>
         <div className="productos">
             {
-							prods.map(producto =>(
+							productos.map(producto =>(
 								<ProductoItem 
 									key={producto.id}
 									title={producto.title}
@@ -27,4 +25,3 @@ const ProductosList = () => {
 				</>
     )
 }
-export default ProductosList

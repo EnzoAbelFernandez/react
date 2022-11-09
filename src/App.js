@@ -1,22 +1,24 @@
-import './App.css';
-import NavBar from './components/NavBar';
-import ProductosList from './components/productos/ProductosList';
-import Footer from "./components/Footer";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Carrito from './components/Carrito';
+import React from 'react'
+import { Header } from "./components/Header";
+import { Carrito } from "./components/Carrito";
+import {DataProvider} from './context/DataProvider';
+import { BrowserRouter as Router} from "react-router-dom";
+import Pages from "./components/Page.js";
+import "boxicons";
 
 function App() {
+
   return (
-    <Router>
-      <NavBar/>
-      <Routes>
-        <Route exact path='/' element={<ProductosList/>}/>
-        <Route exact path='/carrito' element={<Carrito/>}/>
-      </Routes>
-      <Footer/>
-    </Router>
+    <DataProvider>
+    <div className="App">
+      <Router>
+      <Header />
+      <Carrito />
+      <Pages />
+      </Router>
+    </div>
+    </DataProvider>
   );
 }
-
 
 export default App;
