@@ -25,14 +25,14 @@ code {
 .inicio{
     width: 100%;
     margin: 0 auto;
-    padding-top: 9rem ;
+    padding-top: 6rem ;
 }
 .inicio h1{
     font-size: 2.5rem;
     color: #08a05c;
 }
 .inicio img{
-    width: 100%;
+    width: 60%;
 }
 
 /* ----------------- HEADER -------------------*/

@@ -2,13 +2,13 @@ import React, {useContext} from 'react'
 import { DataContext } from "context/DataProvider";
 import { ProductoItem } from "./ProductoItem";
 
-export const ProductosList = () => {
+export const ProductoContainer = () => {
 	const value = useContext(DataContext)
 	const [productos] = value.productos;
     return (
 			<>
-			<h1 className="produ">PRODUCTOS</h1>
-        <div className="productos">
+			
+        <div style={{marginTop: 60}} className="productos">
             {
 							productos.map(producto =>(
 								<ProductoItem 

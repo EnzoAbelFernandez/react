@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import Card from "images/img02.jpg";
 import { DataContext } from "context/DataProvider";
+import {collection, addDoc, getFirestore} from "firebase/firestore";
 
 export const Carrito = () => {
   const value = useContext(DataContext);
@@ -11,23 +11,6 @@ export const Carrito = () => {
   const tooglefalse = () => {
     setMenu(false);
 	};
-	
-	const reduce = id =>{
-		carrito.forEach(item =>{
-			if(item.id === id){
-				item.cantidad === 1 ? item.cantidad = 1: item.cantidad -=1;
-			}
-			setCarrito([...carrito])
-		})
-	}
-	const increase = id =>{
-		carrito.forEach(item =>{
-			if(item.id === id){
-				item.cantidad +=1;
-			}
-			setCarrito([...carrito])
-		})
-	}
 
 	const removeProducto = id =>{
 		if(window.confirm("¿Quieres suspender el producto?")){
@@ -44,6 +27,19 @@ export const Carrito = () => {
   const show1 = menu ? "carritos show" : "carrito";
 	const show2 = menu ? "carrito show" : "carrito";
 	
+	let input = document.getElementById("input")
+	
+	const addOrder = () =>{
+		const db = getFirestore()
+		const productos = collection(db, "ordenes")
+		let order = {products: carrito, comprador: toString(input.value)}
+		addDoc(productos, order).then(()=>{
+			console.log("ordenado")
+			input.value = null
+			setCarrito([])
+		})
+
+	}
 
 
   return (
@@ -66,18 +62,7 @@ export const Carrito = () => {
                 <h3> {producto.title} </h3>
                 <p className="price">${producto.price}</p>
               </div>
-              <div>
-								<box-icon 
-									onClick={() => increase(producto.id)} name="up-arrow" 
-									type="solid"
-									/>
-                <p className="cantidad">{producto.cantidad}</p>
-								<box-icon 
-									onClick={() => reduce(producto.id)} 
-									name="down-arrow" 
-									type="solid" 
-									/>
-              </div>
+              
 							<div 
 							onClick={() => removeProducto(producto.id)} 
 							className="remove__item"
@@ -94,7 +79,8 @@ export const Carrito = () => {
 
         <div className="carrito__footer">
           <h3>Total: ${total}</h3>
-          <button className="btn">Payment</button>
+		  <input id="input" type={"text"} placeholder="Nombre del comprador"></input>
+          <button className="btn" onClick={()=>addOrder()}>Payment</button>
         </div>
       </div>
     </div>

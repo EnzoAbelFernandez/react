@@ -5,7 +5,6 @@ import { DataContext } from "context/DataProvider";
 export const ProductoItem = ({title, image, category, price, id}) => {
 
   const value = useContext(DataContext);
-  const addCarrito = value.addCarrito;
 
 
 
@@ -21,12 +20,6 @@ export const ProductoItem = ({title, image, category, price, id}) => {
         <h1>{title}</h1>
         <p>{category}</p>
         <p className="price">${price} </p>
-      </div>
-      <div className="bottom">
-        <button onClick={() => addCarrito(id)} className="btn">Añadir al carrito</button>
-        <div>
-        <Link to={`/producto/${id}`} className="btn">Vista</Link>
-        </div>
       </div>
     </div>
   );
